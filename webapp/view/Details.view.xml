@@ -1,0 +1,14 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    controllerName="sap.btp.sapui5.controller.Details">
+    <Page id="detailsPage" title="Product Details">
+        <content>
+            <TextArea id="textAreaDetails"
+                value="{details>/rawJSON}"
+                rows="20"
+                width="100%"
+                editable="false" />
+        </content>
+    </Page>
+</mvc:View>

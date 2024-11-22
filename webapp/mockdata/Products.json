@@ -1,0 +1,6 @@
+{
+    "value": [
+        { "Name": "Bread", "Description": "Whole grain bread", "Price": 2.5, "Rating": 4 },
+        { "Name": "Milk", "Description": "Fresh milk", "Price": 1.2, "Rating": 5 }
+    ]
+}

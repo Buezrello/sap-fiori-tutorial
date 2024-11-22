@@ -1,0 +1,62 @@
+<mvc:View
+    controllerName="sap.btp.sapui5.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="Static Table Test">
+        <content>
+            <VBox id="vboxID">
+                <!-- Dropdown for filtering -->
+                <Select id="ratingFilter" change="onFilterRating">
+                    <items>
+                        <core:Item id="rating0" key="" text="All Ratings" />
+                        <core:Item id="rating1" key="1" text="Rating 1" />
+                        <core:Item id="rating2" key="2" text="Rating 2" />
+                        <core:Item id="rating3" key="3" text="Rating 3" />
+                        <core:Item id="rating4" key="4" text="Rating 4" />
+                        <core:Item id="rating5" key="5" text="Rating 5" />
+                    </items>
+                </Select>
+
+                <!-- Sort Button -->
+                <Button
+                    id="sortPriceButton"
+                    text="Sort by Price (Ascending)"
+                    press="onSortPrice"
+                />
+
+                <!-- Table -->
+                <Table id="productsTable" items="{/Products}">
+                    <columns>
+                        <Column id="nameColumn">
+                            <Text id="nameHeader" text="Name" />
+                        </Column>
+                        <Column id="descriptionColumn">
+                            <Text id="descriptionHeader" text="Description" />
+                        </Column>
+                        <Column id="ratingColumn">
+                            <Text id="ratingHeader" text="Rating" />
+                        </Column>
+                        <Column id="priceColumn">
+                            <Text id="priceHeade" text="Price" />
+                        </Column>
+                        <Column id="detailsViewColumn">
+                            <Text id="detailsButtonHeader" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem id="productItem">
+                            <cells>
+                                <Text id="nameCell" text="{ProductName}" />
+                                <Text id="descriptionCell" text="{Description}" />
+                                <Text id="ratingCell" text="{Rating}" />
+                                <Text id="priceCell" text="{path: 'UnitPrice', type: 'sap.ui.model.type.Float', formatOptions: {minFractionDigits: 2, maxFractionDigits: 2}}" />
+                                <Button id="detailsButton" text="Details" press="onShowDetails" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>  
+        </content>
+    </Page>
+</mvc:View>
