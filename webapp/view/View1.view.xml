@@ -4,6 +4,13 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
     <Page id="page" title="Static Table Test">
+        <headerContent>
+            <SearchField
+                id="productSearch"
+                placeholder="Search by Product Name"
+                search="onSearchProduct"
+            />
+        </headerContent>
         <content>
             <VBox id="vboxID">
                 <!-- Dropdown for filtering -->

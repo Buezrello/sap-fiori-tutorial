@@ -28,8 +28,8 @@ This project is an SAP Fiori application designed to interact with the Northwind
 1. **Display Products**:
    - Fetch and display products from the Northwind OData service.
    - The table includes columns for:
-     - Name (concatenation of `ProductName` and `QuantityPerUnit`)
-     - Description
+     - Name
+     - Description (concatenation of `ProductName` and `QuantityPerUnit`)
      - Rating (calculated field)
      - Price (`UnitPrice`)
    
@@ -39,11 +39,14 @@ This project is an SAP Fiori application designed to interact with the Northwind
 3. **Sorting**:
    - Sort products by price in ascending, descending, or unsorted order.
 
-4. **Navigation**:
+4. **Searching**:
+   - Search products dynamically by their ProductName using a search bar.
+
+5. **Navigation**:
    - Each product has a "Details" button that navigates to a details page showing all available product information.
    - The details page also displays a `Rating` field (calculated on the main view).
 
-5. **JSON Display**:
+6. **JSON Display**:
    - The details page displays the raw JSON data for the selected product, enriched with `Rating` and `Description`.
 
 ---
@@ -93,5 +96,7 @@ The key files and folders in this project are:
 
 ## Additional Notes
 
+- Search Feature:
+The application now supports searching products by ProductName. Users can enter a search term in the search bar above the table. The table dynamically filters and displays only the products that match the search term.
 - The `README.md` has been updated to include detailed instructions for running and testing the app.
 - The application has been thoroughly tested with real and mock data.

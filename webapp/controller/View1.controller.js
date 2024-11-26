@@ -99,6 +99,29 @@ sap.ui.define([
                 rating: oData.Rating ? oData.Rating.toString() : "",
                 description: oData.Description // Pass Description
             });
+        },
+        onSearchProduct: function (oEvent) {
+            const sQuery = oEvent.getParameter("query");
+            const oTable = this.byId("productsTable");
+            const oBinding = oTable.getBinding("items");
+
+            if (sQuery && !/^[a-zA-Z0-9\s]+$/.test(sQuery)) {
+                sap.m.MessageToast.show("Invalid input. Please use alphanumeric characters.");
+                return;
+            }
+        
+            if (sQuery && sQuery.length > 0) {
+                const oFilter = new sap.ui.model.Filter("ProductName", sap.ui.model.FilterOperator.Contains, sQuery);
+                oBinding.filter([oFilter], "Application");
+            } else {
+                oBinding.filter([], "Application");
+            }
+
+            oBinding.attachDataReceived(null, function (oEvent) {
+                if (oEvent.getParameter("error")) {
+                    sap.m.MessageBox.error("Failed to fetch data. Please try again.");
+                }
+            });
         }     
     });
 });
